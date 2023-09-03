@@ -28,10 +28,35 @@ const clover = createPet("Clover", "rabbit");
 const baxter = createPet("Baxter", "hamster");
 const cleo = createPet("Cleo", "rat");
 const francie = createPet("Francie", "turtle");
-
+/*
 clover.sleep();
 baxter.play();
 console.log(clover, baxter);
+*/
+clover.isTired = 8;
+francie.isTired = 9;
+
+const allPets = [sora, clover, baxter, cleo, francie];
+console.log(allPets);
+
+//Display Pets in the Browser
+const showPets = function (petArray) {
+  //empty list
+  pets.innerHTML = "";
+  for (let pet of petArray) {
+    let status = "ready ro play!";
+    if (pet.isTired >= 7) {
+      status = "sleeping";
+    }
+    const li = document.createElement("li");
+    li.innerHTML = `<span class = "pet-name">${pet.name} </span> the ${pet.species} is ${status}.`;
+    pets.append(li);
+  }
+};
+statusButton.addEventListener("click", function () {
+  showPets(allPets);
+});
 
 /*
+ 
  */
